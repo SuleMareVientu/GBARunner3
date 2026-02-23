@@ -91,7 +91,10 @@ int main(int argc, char* argv[])
     mem_setVramIMapping(MEM_VRAM_I_LCDC);
 
     // loadSplashScreen();
-
+    mem_setVramEMapping(MEM_VRAM_E_MAIN_BG_00000);
+    mem_setVramFMapping(MEM_VRAM_FG_MAIN_OBJ_00000);
+    mem_setVramGMapping(MEM_VRAM_FG_MAIN_OBJ_04000);
+    
     DC_FlushAll();
     DC_InvalidateAll();
     IC_InvalidateAll();
