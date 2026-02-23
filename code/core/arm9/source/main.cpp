@@ -78,7 +78,7 @@ static NitroEmulatorOutputStream sIsNitroOutput;
 static PlainLogger sPlainLogger { LogLevel::All, &sIsNitroOutput };
 static NullLogger sNullLogger;
 ILogger* gLogger;
-static SplashScreen* sSplashScreen;
+// static SplashScreen* sSplashScreen;
 
 static void setupLogger()
 {
@@ -444,8 +444,8 @@ extern "C" void gbaRunnerMain(int argc, char* argv[])
 
     vm_nestedIrqLevel = 1; // prevent enabling nested irqs during initialization
 
-    sSplashScreen = new SplashScreen();
-    sSplashScreen->Initialize();
+    // sSplashScreen = new SplashScreen();
+    // sSplashScreen->Initialize();
 
     mem_setVramBMapping(MEM_VRAM_AB_MAIN_BG_40000);
     mem_setVramCMapping(MEM_VRAM_C_LCDC);
@@ -465,7 +465,7 @@ extern "C" void gbaRunnerMain(int argc, char* argv[])
 
     mem_setMainMemoryPriority(EXMEMCNT_MAIN_MEM_PRIO_ARM7);
 
-    startSplashScreenAnimation();
+    // startSplashScreenAnimation();
 
     bool mountResult;
     if (shouldMountDsiSd(argc, argv))
@@ -502,10 +502,10 @@ extern "C" void gbaRunnerMain(int argc, char* argv[])
     handleSave(romPath);
     SelfModifyingPatches().ApplyPatches(gAppSettingsService.GetAppSettings().runSettings);
 
-    waitSplashScreenAnimation();
-    stopSplashScreenAnimation();
-    delete sSplashScreen;
-    sSplashScreen = nullptr;
+    // waitSplashScreenAnimation();
+    // stopSplashScreenAnimation();
+    // delete sSplashScreen;
+    // sSplashScreen = nullptr;
 
     const auto& displaySettings = gAppSettingsService.GetAppSettings().displaySettings;
     gGbaDisplayConfigurationService.ApplyDisplaySettings(displaySettings);
