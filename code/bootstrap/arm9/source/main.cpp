@@ -56,6 +56,7 @@ static bool tryInitDldi()
     return ipc_recvWordDirect();
 }
 
+/*
 static void loadSplashScreen()
 {
     mem_setVramEMapping(MEM_VRAM_E_MAIN_BG_00000);
@@ -73,6 +74,7 @@ static void loadSplashScreen()
     dmaCopy(threePal, (void*)0x05000200, threePalLen);
     dmaCopy(runnerPal, (void*)0x05000220, runnerPalLen);
 }
+*/
 
 int main(int argc, char* argv[])
 {
@@ -88,7 +90,7 @@ int main(int argc, char* argv[])
     mem_setVramHMapping(MEM_VRAM_H_LCDC);
     mem_setVramIMapping(MEM_VRAM_I_LCDC);
 
-    loadSplashScreen();
+    // loadSplashScreen();
 
     DC_FlushAll();
     DC_InvalidateAll();
