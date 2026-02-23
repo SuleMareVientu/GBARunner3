@@ -387,6 +387,7 @@ static void loadGameSpecificSettings()
 }
 
 [[gnu::interrupt("IRQ")]]
+/*
 static void splashScreenIrqHandler()
 {
     rtos_ackIrqMask(RTOS_IRQ_VBLANK);
@@ -431,7 +432,7 @@ static void stopSplashScreenAnimation()
     *(vu32*)0x01000018 = 0xEAFFFFFE; // b .
     *(vu32*)0x0100001C = 0xEAFFFFFE; // b .
 }
-
+*/
 extern u32 hicodeUndefinedData[];
 
 extern "C" void gbaRunnerMain(int argc, char* argv[])
